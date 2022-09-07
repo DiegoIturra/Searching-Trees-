@@ -7,6 +7,7 @@ class Node:
 		self.left = None
 		self.right = None
 
+
 	def __eq__(self,other):
 		if isinstance(other,Node):
 			return self.value == other.value
@@ -18,10 +19,15 @@ class Node:
 			return self.value < other.value
 		return False
 
+
 	def __gt__(self,other):
 		if isinstance(other,Node):
 			return self.value > other.value
 		return False
+
+
+	def __str__(self):
+		return f"Node -> {self.value}"
 
 
 class BinaryTreeClass(ABC):
