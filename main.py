@@ -6,19 +6,12 @@ if __name__ == '__main__':
 	
 	#Ejemplo de instancia
 	tree = AVLSearchTree()
-	tree.insert(69)
-	tree.insert(40)
-	tree.insert(100)
-	tree.insert(150)
-	tree.insert(80)
-	tree.insert(60)
-	tree.insert(30)
+	tree.insert(33)
+	tree.insert(9)
+	tree.insert(53)
+	tree.insert(8)
+	tree.insert(61)
+	tree.insert(21)
+	tree.insert(11)
 
-	tree.print_tree()
-
-	print(tree.search(40))
-	print(tree.search(1000))
-	print(tree.search(30))
-	print(tree.search(150))
-	print(tree.search(79))
-	print(tree.search(89))
+	tree.show_height()
