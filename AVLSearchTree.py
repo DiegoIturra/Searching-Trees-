@@ -43,6 +43,8 @@ class AVLSearchTree(BinaryTreeClass):
     def __balance(self,node):
     	balance_factor = self.__get_balance_factor(node)
 
+    	
+    	#Arbol cargado hacia la izquierda
     	if balance_factor < -1:
     		if self.__get_balance_factor(node.left) <= 0:
     			node = self.__right_rotation(node)
@@ -50,6 +52,7 @@ class AVLSearchTree(BinaryTreeClass):
     			node.left = self.__left_rotation(node.left)
     			node = self.__right_rotation(node)
 
+    	#Arbol cargado hacia la derecha
     	if balance_factor > 1:
     		if self.__get_balance_factor(node.right) >= 0:
     			node = self.__left_rotation(node)
@@ -111,7 +114,3 @@ class AVLSearchTree(BinaryTreeClass):
         node = self.__create_node(value)
         return self.__exist(self.root, node)
 
-
-    # Metodos de prueba (Eliminar despues)
-    def balancear(self):
-        self.root = self.__left_rotation(self.root)
