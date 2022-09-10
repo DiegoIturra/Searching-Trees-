@@ -40,6 +40,26 @@ class AVLSearchTree(BinaryTreeClass):
 
         return aux_node
 
+    def __balance(self,node):
+    	balance_factor = self.__get_balance_factor(node)
+
+    	if balance_factor < -1:
+    		if self.__get_balance_factor(node.left) <= 0:
+    			node = self.__right_rotation(node)
+    		else:
+    			node.left = self.__left_rotation(node.left)
+    			node = self.__right_rotation(node)
+
+    	if balance_factor > 1:
+    		if self.__get_balance_factor(node.right) >= 0:
+    			node = self.__left_rotation(node)
+    		else:
+    			node.right = self.__right_rotation(node.right)
+    			node = self.__left_rotation(node)
+
+    	return node
+
+
     def __inorder(self, root):
         if root is not None:
             self.__inorder(root.left)
@@ -66,7 +86,7 @@ class AVLSearchTree(BinaryTreeClass):
         # Actualiza la altura
         self.__update_height(root)
 
-        return root
+        return self.__balance(root)
 
 
     def __exist(self, root, node):
@@ -93,8 +113,5 @@ class AVLSearchTree(BinaryTreeClass):
 
 
     # Metodos de prueba (Eliminar despues)
-    def show_height(self):
-        self.__inorder(self.root)
-
     def balancear(self):
-        self.root = self.__right_rotation(self.root)
+        self.root = self.__left_rotation(self.root)
