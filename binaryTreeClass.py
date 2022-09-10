@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Node:
 
 	def __init__(self,value):
@@ -7,8 +8,7 @@ class Node:
 		self._left = None
 		self._right = None
 
-		self._height = 1
-		self._balance_factor = 0
+		self._height = 0
 
 	@property
 	def left(self):
@@ -25,14 +25,6 @@ class Node:
 	@right.setter
 	def right(self,value):
 		self._right = value
-
-	@property
-	def balance_factor(self):
-		return self._balance_factor
-
-	@balance_factor.setter
-	def balance_factor(self,balance_factor):
-		self._balance_factor = balance_factor
 
 	@property
 	def height(self):
