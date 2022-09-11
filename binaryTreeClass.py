@@ -8,8 +8,6 @@ class Node:
 		self._left = None
 		self._right = None
 
-		self._height = 0
-
 	@property
 	def left(self):
 		return self._left
@@ -25,14 +23,6 @@ class Node:
 	@right.setter
 	def right(self,value):
 		self._right = value
-
-	@property
-	def height(self):
-		return self._height
-
-	@height.setter
-	def height(self,height):
-		self._height = height
 
 
 	def __eq__(self,other):
@@ -55,6 +45,21 @@ class Node:
 
 	def __str__(self):
 		return f"Node: {self.value}"
+
+
+class AVLNode(Node):
+
+	def __init__(self,value):
+		super().__init__(value)
+		self._height = 0
+
+	@property
+	def height(self):
+		return self._height
+
+	@height.setter
+	def height(self,height):
+		self._height = height
 
 
 class RBNode(Node):

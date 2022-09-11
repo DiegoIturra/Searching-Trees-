@@ -1,4 +1,4 @@
-from binaryTreeClass import Node, BinaryTreeClass
+from binaryTreeClass import AVLNode, BinaryTreeClass
 
 
 class AVLSearchTree(BinaryTreeClass):
@@ -71,7 +71,7 @@ class AVLSearchTree(BinaryTreeClass):
 
 
     def __create_node(self, value):
-        return Node(value)
+        return AVLNode(value)
 
 
     def __insert_node(self, root, value):
