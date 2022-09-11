@@ -7,7 +7,7 @@ if __name__ == '__main__':
 	#Ejemplo de instancia
 	tree = AVLSearchTree()
 
-	numbers = [*range(1,1000000)]
+	numbers = [*range(1,20)]
 	random.shuffle(numbers)
 
 	for number in numbers:

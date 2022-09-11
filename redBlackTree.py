@@ -1,4 +1,4 @@
-from binaryTreeClass import Node, BinaryTreeClass
+from binaryTreeClass import RBNode, BinaryTreeClass
 
 
 class RedBlackTree(BinaryTreeClass):

@@ -57,6 +57,20 @@ class Node:
 		return f"Node: {self.value}"
 
 
+class RBNode(Node):
+
+	RED = 1
+	BLACK = 0
+
+	def __init__(self,value):
+		super().__init__(value)
+		self.colour = RBNode.BLACK
+
+	def __str__(self):
+		colour = "Black" if self.colour == 0 else "Red"
+		return f"(Node: {self.value},Colour: {colour})"
+
+
 class BinaryTreeClass(ABC):
 
 	@abstractmethod
