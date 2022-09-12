@@ -62,7 +62,7 @@ class AVLNode(Node):
 		self._height = height
 
 
-class RBNode(Node):
+class RBNode(AVLNode):
 
 	RED = 1
 	BLACK = 0
@@ -70,6 +70,7 @@ class RBNode(Node):
 	def __init__(self,value):
 		super().__init__(value)
 		self.colour = RBNode.BLACK
+		self.parent = None
 
 	def __str__(self):
 		colour = "Black" if self.colour == 0 else "Red"
@@ -85,3 +86,6 @@ class BinaryTreeClass(ABC):
 	@abstractmethod
 	def search(self,value):
 		pass
+
+
+
