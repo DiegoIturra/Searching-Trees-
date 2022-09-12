@@ -1,4 +1,6 @@
-from binarySearchTree import BinarySearchTree
+from AVLSearchTree import AVLSearchTree
+import random
+
 
 if __name__ == '__main__':
 	
