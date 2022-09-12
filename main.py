@@ -4,5 +4,12 @@ if __name__ == '__main__':
 	
 	#Ejemplo de instancia
 	tree = BinarySearchTree()
-	tree.insert(69)
-	tree.search(34)
+	
+	for i in range(20):
+		tree.insert(i)
+
+
+	tree.print_tree()
+
+	for i in range(20):
+		print(tree.search(i))

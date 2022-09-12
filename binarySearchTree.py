@@ -2,8 +2,9 @@ from binaryTreeClass import BinaryTreeClass , Node
 
 class BinarySearchTree(BinaryTreeClass):
 
-	def __init__(self, root):
-		super().__init__(root)
+	def __init__(self):
+		self.root = None
+
 
 	def __inorder(self,root):
 		if root is not None:
@@ -11,8 +12,10 @@ class BinarySearchTree(BinaryTreeClass):
 			print(root.value)
 			self.__inorder(root.right)
 
+
 	def __create_node(self,value):
 		return Node(value)
+
 
 	def __insert_node(self,root,value):
 		if not root:
@@ -28,6 +31,7 @@ class BinarySearchTree(BinaryTreeClass):
 				root.right = self.__insert_node(root.right,value)
 
 		return root
+
 
 	def __exist(self,root,node):
 		if not root:
