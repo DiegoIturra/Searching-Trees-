@@ -1,15 +1,15 @@
-from binaryTreeClass import AVLNode, BinaryTreeClass
+from binarySearchTree import BinarySearchTree
 
 
-class AVLSearchTree(BinaryTreeClass):
+class AVLSearchTree(BinarySearchTree):
 
     def __init__(self):
-        self.root = None
+        super().__init__()
 
     # Actualiza la altura de un nodo referenciado, en base al maximo entre el sub arbol izquierdo y derecho mas 1
     def __update_height(self, node):
         node.height = max(self.__get_height(node.left), self.__get_height(node.right)) + 1
-        
+
     # Retorna el valor de la alura asociado al nodo referenciado
     def __get_height(self, node):
         return -1 if not node else node.height
@@ -40,28 +40,27 @@ class AVLSearchTree(BinaryTreeClass):
 
         return aux_node
 
-    def __balance(self,node):
-    	balance_factor = self.__get_balance_factor(node)
+    # Retorna un nodo balanceado
+    def __balance(self, node):
+        balance_factor = self.__get_balance_factor(node)
 
-    	
-    	#Arbol cargado hacia la izquierda
-    	if balance_factor < -1:
-    		if self.__get_balance_factor(node.left) <= 0:
-    			node = self.__right_rotation(node)
-    		else:
-    			node.left = self.__left_rotation(node.left)
-    			node = self.__right_rotation(node)
+        # Arbol cargado hacia la izquierda
+        if balance_factor < -1:
+            if self.__get_balance_factor(node.left) <= 0:
+                node = self.__right_rotation(node)
+            else:
+                node.left = self.__left_rotation(node.left)
+                node = self.__right_rotation(node)
 
-    	#Arbol cargado hacia la derecha
-    	if balance_factor > 1:
-    		if self.__get_balance_factor(node.right) >= 0:
-    			node = self.__left_rotation(node)
-    		else:
-    			node.right = self.__right_rotation(node.right)
-    			node = self.__left_rotation(node)
+        # Arbol cargado hacia la derecha
+        if balance_factor > 1:
+            if self.__get_balance_factor(node.right) >= 0:
+                node = self.__left_rotation(node)
+            else:
+                node.right = self.__right_rotation(node.right)
+                node = self.__left_rotation(node)
 
-    	return node
-
+        return node
 
     def __inorder(self, root):
         if root is not None:
@@ -69,48 +68,26 @@ class AVLSearchTree(BinaryTreeClass):
             print(f"{root} / heigth : {root.height} / balance_factor : {self.__get_balance_factor(root)}")
             self.__inorder(root.right)
 
-
-    def __create_node(self, value):
-        return AVLNode(value)
-
-
-    def __insert_node(self, root, value):
-        if not root:
-            return self.__create_node(value)
-        else:
-            new_node = self.__create_node(value)
-            # insertar a la izquierda
-            if new_node < root:
-                root.left = self.__insert_node(root.left, value)
-            # insertar a la derecha
-            elif new_node > root:
-                root.right = self.__insert_node(root.right, value)
+    def _insert_node(self, root, node_type, value):
+        # LLama a la insercion del BST
+        root = super()._insert_node(root, node_type, value)
 
         # Actualiza la altura
         self.__update_height(root)
 
+        # Retorna un nodo balanceado
         return self.__balance(root)
 
-
-    def __exist(self, root, node):
-        if not root:
-            return False
-        if root == node:
-            return True
-        if node < root:
-            return self.__exist(root.left, node)
-        else:
-            return self.__exist(root.right, node)
-
+    def _exist(self, root, node):
+        return super()._exist(root, node)
 
     # Metodos publicos
     def print_tree(self):
         self.__inorder(self.root)
 
     def insert(self, value):
-        self.root = self.__insert_node(self.root, value)
+        self.root = self._insert_node(self.root, 'AVLNode', value)
 
     def search(self, value):
-        node = self.__create_node(value)
-        return self.__exist(self.root, node)
-
+        node = super()._create_node('AVLNode', value)
+        return self._exist(self.root, node)
