@@ -28,7 +28,7 @@ class BinarySearchTree(BinaryTreeClass):
             new_node = self._create_node(node_type, value)
 
             # insertar a la izquierda
-            if value < root.value:
+            if value < root:
                 root.left = self._insert_node(root.left, node_type, value)
             # insertar a la derecha
             else:
