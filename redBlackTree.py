@@ -9,5 +9,5 @@ class RedBlackTree(BinaryTreeClass):
 	def insert(self,value):
 		pass
 
-	def search(self.value):
+	def search(self,value):
 		pass

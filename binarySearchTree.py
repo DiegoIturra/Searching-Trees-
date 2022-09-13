@@ -18,7 +18,7 @@ class BinarySearchTree(BinaryTreeClass):
 
     # Crea un nodo en base al tipo de nodo
     def _create_node(self, node_type, value):
-    	return self.factory.get_node(node_type,value)
+        return self.factory.get_node(node_type,value)
 
     # Inserta un nodo en el arbol
     def _insert_node(self, root, node_type, value):
