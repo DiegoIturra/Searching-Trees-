@@ -64,7 +64,7 @@ class RBNode(AVLNode):
 
     def __init__(self, value):
         super().__init__(value)
-        self.colour = RBNode.BLACK
+        self.colour = RBNode.RED
         self.parent = None
 
     def __str__(self):
