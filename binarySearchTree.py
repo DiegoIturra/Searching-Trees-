@@ -1,7 +1,7 @@
 import sys
 from binaryTreeClass import BinaryTreeClass, Node, NodeFactory
 
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10**5)
 
 class BinarySearchTree(BinaryTreeClass):
 

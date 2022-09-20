@@ -9,45 +9,33 @@ from time import time
 
 
 if __name__ == '__main__':
-	
-	#Ejemplo de instancia
-	"""tree = BinarySearchTree()
-	
-	for i in range(20):
-		tree.insert(i)
 
-
-	tree.print_tree()
-
-	for i in range(20):
-		print(tree.search(i))
-	"""
-
-	tree = RedBlackTree()
+	tree = BinarySearchTree()
 
 	n = 100000
 
-	start_time = time()
+	values = []
 
 	for i in range(n):
-		tree.insert(random.randint(0,100000))
+		values.append(random.randint(0, n))
 
-	print("Tiempo de insercion promedio: ",(time() - start_time)/100," ms")
-
-
-	# tree.print_tree()
 
 	start_time = time()
-
 	for i in range(n):
-		tree.search(random.randint(0,100000))
+		tree.insert(values[i])
 
-	print("Tiempo de busqueda promedio: ",(time() - start_time)/100," ms")
+	print(f"Tiempo de insercion total {n} elementos desordenados: {(time() - start_time)} s")
+
 	
+	tree = BinarySearchTree()
+	values.sort()
+
+	start_time = time()
+	for i in range(n):
+		print(f"{i}: {values[i]}")
+		tree.insert(values[i])
+	print(f"Tiempo de insercion total {n} elementos ordenados: {(time() - start_time)} s")
 
 
-
-	#print(tree.__class__.__name__)
-	
 
 

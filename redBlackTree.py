@@ -5,18 +5,6 @@ from binaryTreeClass import RBNode, BinaryTreeClass
 from binarySearchTree import BinarySearchTree
 
 
-# class RedBlackTree(BinarySearchTree):
-
-# 	def __init__(self):
-# 		self.root = None
-
-# 	def insert(self,value):
-# 		pass
-
-# 	def search(self,value):
-# 		pass
-
-
 class RedBlackTree(BinarySearchTree):
 
 	def __init__(self):
@@ -73,8 +61,6 @@ class RedBlackTree(BinarySearchTree):
 
 		self.__swap_colours(node,aux_node)
 
-		# self.__update_height(node)
-		# self.__update_height(aux_node)
 
 		return aux_node
 
@@ -86,8 +72,6 @@ class RedBlackTree(BinarySearchTree):
 
 		self.__swap_colours(node,aux_node)
 
-		# self.__update_height(node)
-		# self.__update_height(aux_node)
 
 		return aux_node
 
