@@ -123,8 +123,9 @@ class RedBlackTree(BinarySearchTree):
 			# insertar a la derecha
 			else:
 				root.right = self._insert_node(root.right, node_type, value)
-			# balancear si el nodo es negro
-			if root.colour == RBNode.BLACK: root = self.__balance_colour(root)
+
+		# balancear si el nodo es negro
+		if root.colour == RBNode.BLACK: root = self.__balance_colour(root)
 
 
 		return root
