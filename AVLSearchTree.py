@@ -69,19 +69,8 @@ class AVLSearchTree(BinarySearchTree):
             self.__inorder(root.right)
 
     def _insert_node(self, root, node_type, value):
-        
         # sobreescribimos el método insert para agregar el balanceo en la llamada recursiva
-        if not root:
-            root = super()._create_node(node_type, value)
-        else:
-            new_node = super()._create_node(node_type, value)
-
-            # insertar a la izquierda
-            if new_node < root:
-                root.left = super()._insert_node(root.left, node_type, value)
-            # insertar a la derecha
-            else:
-                root.right = super()._insert_node(root.right, node_type, value)
+        root = super()._insert_node(root,node_type,value)
 
         # Actualiza la altura
         self.__update_height(root)
